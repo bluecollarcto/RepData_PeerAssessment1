@@ -36,8 +36,8 @@ library(ggplot2)
 
 
 The data file for this assignment comes in a zipped file called **_activity.zip_**.
-This file contains *__activity.csv_**
-*To load this data we will unzip **_activity.csv_** into the working directory.
+This file contains **_activity.csv_**
+To load this data we will unzip **_activity.csv_** into the working directory.
 ```{r echo=TRUE}
 data_file <- "activity.csv"  ##set name of data file
 if (!file.exists(data_file)) {

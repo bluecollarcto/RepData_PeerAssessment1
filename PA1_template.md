@@ -24,8 +24,8 @@ library(ggplot2)
 
 
 The data file for this assignment comes in a zipped file called **_activity.zip_**.
-This file contains *__activity.csv_**
-*To load this data we will unzip **_activity.csv_** into the working directory.
+This file contains **_activity.csv_**
+To load this data we will unzip **_activity.csv_** into the working directory.
 
 ```r
 data_file <- "activity.csv"  ##set name of data file
@@ -178,11 +178,11 @@ contains the maximum number of steps.
 
 ```r
 maxStepsInterval<-stepsByInterval[which.max(stepsByInterval$steps),]$interval
-maxStepsDuringMaxInterval<-stepsByInterval[which.max(stepsByInterval$steps),]$steps
+maxStepsDuringMaxInterval<-round(stepsByInterval[which.max(stepsByInterval$steps),]$steps, digits=0)
 maxStepsMinute<-minute(strptime(sprintf("%04d", maxStepsInterval),format="%H%M"))
 maxStepsHour<-hour(strptime(sprintf("%04d", maxStepsInterval),format="%H%M"))
 ```
-The 5-minute interval at **8:35** contains the maximum number of steps **(206.1698113)** on average across all the days in the dataset.
+The 5-minute interval at **8:35** contains the maximum number of steps **(206)** on average across all the days in the dataset.
 
 
 ## Imputing missing values
@@ -202,7 +202,7 @@ There are **2304** NA values in the **steps** column of the dataset.
 3. Create a new dataset that is equal to the original dataset but with the missing data filled in.
 
 We will use the mean for the 5-minute intervals across days where the data is not missing to 
-impute values for these NA data points. This will create a new dataset - **activityImputed**
+impute values for these NA data points. This will create a new dataset **activityImputed**
 
 ```r
 ## Use the merge fuction to combine average from 'stepsByInterval' with 'activity' data frames
